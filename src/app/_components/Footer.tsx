@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/shared/providers/LanguageContext';
 
 export function Footer() {
   const { t } = useLanguage();

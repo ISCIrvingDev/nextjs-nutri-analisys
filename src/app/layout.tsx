@@ -1,10 +1,17 @@
-import './globals.css';
+// * NextJS: SEO
 import type { Metadata } from 'next';
+
+// * Styles
+import './globals.css';
 import { Inter } from 'next/font/google';
-import { LanguageProvider } from '@/contexts/LanguageContext';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
-import { Toaster } from '@/components/ui/sonner';
+
+// * Providers
+import { LanguageProvider } from '@/shared/providers/LanguageContext';
+
+// * Components
+import { Header } from './_components/Header';
+import { Footer } from './_components/Footer';
+import { Toaster } from '@/shared/components/ui/sonner';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,7 +27,7 @@ export const metadata: Metadata = {
     'food analysis',
     'meal nutrition',
   ],
-  authors: [{ name: 'Ivin Dev', url: 'https://ivin-dev.com' }],
+  authors: [{ name: 'Irving Salazar', url: 'https://ivin-dev.com' }],
   openGraph: {
     title: 'Nutri Analysis - AI-Powered Meal Nutrition Analysis',
     description:

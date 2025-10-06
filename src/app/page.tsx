@@ -1,14 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-import { ImageUpload } from '@/components/ImageUpload';
-import { MealResults } from '@/components/MealResults';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { analyzeMeal } from '@/lib/api';
-// import { checkUploadLimit, incrementUploadCount } from '@/lib/usageTracking';
-import { MealAnalysisResponse } from '@/lib/types';
-import { toast } from 'sonner';
-import { Loader as Loader2, Sparkles } from 'lucide-react';
+// * Components
+import { ImageUpload } from './_components/image-upload/ImageUpload';
+import { MealResults } from './_components/MealResults';
+
+// * Shared Components
 import {
   AlertDialog,
   AlertDialogContent,
@@ -16,42 +12,28 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/components/ui/alert-dialog';
-import { Button } from '@/components/ui/button';
+} from '@/shared/components/ui/alert-dialog';
+import { Button } from '@/shared/components/ui/button';
+
+// * Icons
+import { Loader as Loader2, Sparkles } from 'lucide-react';
+
+// * MVVM: Custom Hooks
+import { useHome } from './_hooks/useHome';
+
+// * Lib
+// import { checkUploadLimit, incrementUploadCount } from '@/lib/usageTracking';
 
 export default function Home() {
-  const { t } = useLanguage();
-  const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [results, setResults] = useState<MealAnalysisResponse | null>(null);
-  const [showLimitModal, setShowLimitModal] = useState(false);
-
-  const handleImageSelect = async (file: File) => {
-    // const { allowed, count } = await checkUploadLimit();
-
-    if (!true) { // allowed - Si "allowed" tiene menos de 3, mostrar el modal del limite
-      setShowLimitModal(true);
-      return;
-    }
-
-    setIsAnalyzing(true);
-    setResults(null);
-
-    try {
-      const data = await analyzeMeal(file);
-      setResults(data);
-      // await incrementUploadCount();
-      toast.success('Analysis complete!');
-    } catch (error) {
-      console.error('Analysis error:', error);
-      toast.error(t.upload.error);
-    } finally {
-      setIsAnalyzing(false);
-    }
-  };
-
-  const handleAnalyzeAnother = () => {
-    setResults(null);
-  };
+  const {
+    t,
+    isAnalyzing,
+    results,
+    showLimitModal,
+    setShowLimitModal,
+    handleImageSelect,
+    handleAnalyzeAnother,
+  } = useHome()
 
   return (
     <>

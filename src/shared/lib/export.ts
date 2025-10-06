@@ -1,7 +1,7 @@
 import * as XLSX from "xlsx";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
-import { MealAnalysisResponse } from "./types";
+import { MealAnalysisResponse } from "@/shared/models/meal-analysis.models";
 import { Language, translations } from "./i18n";
 
 export function exportToExcel(data: MealAnalysisResponse, language: Language) {
@@ -80,6 +80,7 @@ export function exportToPDF(data: MealAnalysisResponse, language: Language) {
     },
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const finalY = (doc as any).lastAutoTable.finalY + 10;
 
   autoTable(doc, {

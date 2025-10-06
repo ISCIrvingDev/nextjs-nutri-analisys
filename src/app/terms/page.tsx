@@ -1,48 +1,13 @@
 'use client';
 
-import { useLanguage } from '@/contexts/LanguageContext';
+// * MVVM: Custom Hooks
+import { useTerms } from './_hooks/useTerms';
 
 export default function TermsOfService() {
-  const { t } = useLanguage();
-
-  const sections = [
-    {
-      title: t.terms.section1Title,
-      content: t.terms.section1Content,
-    },
-    {
-      title: t.terms.section2Title,
-      content: t.terms.section2Content,
-    },
-    {
-      title: t.terms.section3Title,
-      content: t.terms.section3Content,
-    },
-    {
-      title: t.terms.section4Title,
-      content: t.terms.section4Content,
-    },
-    {
-      title: t.terms.section5Title,
-      content: t.terms.section5Content,
-    },
-    {
-      title: t.terms.section6Title,
-      content: t.terms.section6Content,
-    },
-    {
-      title: t.terms.section7Title,
-      content: t.terms.section7Content,
-    },
-    {
-      title: t.terms.section8Title,
-      content: t.terms.section8Content,
-    },
-    {
-      title: t.terms.section9Title,
-      content: t.terms.section9Content,
-    },
-  ];
+  const {
+    t,
+    sections
+  } = useTerms()
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8">

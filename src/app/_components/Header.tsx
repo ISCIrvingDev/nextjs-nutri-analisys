@@ -1,8 +1,15 @@
 'use client';
 
+// * NextJS
 import Link from 'next/link';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { LanguageSwitcher } from './LanguageSwitcher';
+
+// * Providers
+import { useLanguage } from '@/shared/providers/LanguageContext';
+
+// * Components
+import { LanguageSwitcher } from '@/shared/components/LanguageSwitcher';
+
+// * Icons
 import { Apple } from 'lucide-react';
 
 export function Header() {

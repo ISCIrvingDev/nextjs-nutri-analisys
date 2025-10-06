@@ -1,19 +1,19 @@
 'use client';
 
-import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
-import { Brain, Code, Database, Sparkles, Users } from 'lucide-react';
+// * MVVM: Custom Hooks
+import { useAbout } from './_hooks/useAbout';
+
+// * Components
+import { Button } from '@/shared/components/ui/button';
+
+// * Icons
+import { Sparkles } from 'lucide-react';
 
 export default function About() {
-  const { t } = useLanguage();
-
-  const skills = [
-    { icon: Code, text: t.about.skillsList[0] },
-    { icon: Brain, text: t.about.skillsList[1] },
-    { icon: Database, text: t.about.skillsList[2] },
-    { icon: Sparkles, text: t.about.skillsList[3] },
-    { icon: Users, text: t.about.skillsList[4] },
-  ];
+  const {
+    t,
+    skills,
+  } = useAbout()
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8">

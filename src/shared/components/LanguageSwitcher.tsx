@@ -1,7 +1,7 @@
 'use client';
 
-import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/shared/providers/LanguageContext';
+import { Button } from '@/shared/components/ui/button';
 import { Globe } from 'lucide-react';
 
 export function LanguageSwitcher() {

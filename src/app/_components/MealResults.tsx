@@ -1,10 +1,19 @@
 'use client';
 
-import { MealAnalysisResponse } from '@/lib/types';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
+// * Models
+import { MealAnalysisResponse } from '@/shared/models/meal-analysis.models';
+
+// * Providers
+import { useLanguage } from '@/shared/providers/LanguageContext';
+
+// * Components
+import { Button } from '@/shared/components/ui/button';
+
+// * Icons
 import { Download, FileSpreadsheet, RefreshCw } from 'lucide-react';
-import { exportToExcel, exportToPDF } from '@/lib/export';
+
+// * Lib
+import { exportToExcel, exportToPDF } from '@/shared/lib/export';
 
 interface MealResultsProps {
   data: MealAnalysisResponse;

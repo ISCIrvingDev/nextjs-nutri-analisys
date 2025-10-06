@@ -1,7 +1,10 @@
 "use server";
 
+// * Axios
 import axios from "axios";
-import { MealAnalysisResponse } from "./types";
+
+// * Models
+import { MealAnalysisResponse } from "@/shared/models/meal-analysis.models";
 
 export async function analyzeMeal(
   imageFile: File

@@ -1,24 +1,21 @@
 'use client';
 
-import { useLanguage } from '@/contexts/LanguageContext';
+// * MVVM: Customs Hooks
+import { useFaqs } from './_hooks/useFaqs';
+
+// * Componentes
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/accordion';
+} from '@/shared/components/ui/accordion';
 
 export default function FAQs() {
-  const { t } = useLanguage();
-
-  const faqs = [
-    { q: t.faqs.q1, a: t.faqs.a1 },
-    { q: t.faqs.q2, a: t.faqs.a2 },
-    { q: t.faqs.q3, a: t.faqs.a3 },
-    { q: t.faqs.q4, a: t.faqs.a4 },
-    { q: t.faqs.q5, a: t.faqs.a5 },
-    { q: t.faqs.q6, a: t.faqs.a6 },
-  ];
+  const {
+    t,
+    faqs,
+  } = useFaqs()
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8">
