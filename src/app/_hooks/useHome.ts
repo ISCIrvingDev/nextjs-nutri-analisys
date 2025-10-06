@@ -20,6 +20,10 @@ import { MealAnalysisResponse } from "@/shared/models/meal-analysis.models";
 
 // * Services
 import { analyzeMeal } from "@/shared/services/api";
+import {
+  checkUploadLimit,
+  incrementUploadCount,
+} from "@/shared/services/meal-analysis-limit.service";
 
 // * Custom Hooks
 // xxx
@@ -34,10 +38,10 @@ export function useHome() {
   const [showLimitModal, setShowLimitModal] = useState(false);
 
   const handleImageSelect = async (file: File) => {
-    // const { allowed, count } = await checkUploadLimit();
+    const { count } = checkUploadLimit();
 
-    if (!true) {
-      // allowed - Si "allowed" tiene menos de 3, mostrar el modal del limite
+    // allowed - Si "allowed" tiene menos de 3, mostrar el modal del limite
+    if (count >= 3) {
       setShowLimitModal(true);
       return;
     }
@@ -48,7 +52,7 @@ export function useHome() {
     try {
       const data = await analyzeMeal(file);
       setResults(data);
-      // await incrementUploadCount();
+      incrementUploadCount();
       toast.success("Analysis complete!");
     } catch (error) {
       console.error("Analysis error:", error);
