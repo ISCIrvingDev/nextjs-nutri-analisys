@@ -64,7 +64,7 @@ export function MealResults({ data, onAnalyzeAnother }: MealResultsProps) {
                     <p className="text-sm text-[#888888]">{item.quantity}</p>
                   </div>
                   <div className="bg-[#FFD43B] text-[#1E1E1E] px-4 py-1 rounded-[50px] text-sm font-semibold">
-                    {item.calories} kcal
+                    {item.calories}
                   </div>
                 </div>
                 <p className="text-[#555555] mb-4">{item.description}</p>
